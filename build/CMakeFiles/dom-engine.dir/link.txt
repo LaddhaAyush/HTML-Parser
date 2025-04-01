@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\dom-engine.dir/objects.a
+C:\MinGW\bin\ar.exe qc CMakeFiles\dom-engine.dir/objects.a @CMakeFiles\dom-engine.dir\objects1.rsp
+C:\MinGW\bin\c++.exe -g -Wl,--whole-archive CMakeFiles\dom-engine.dir/objects.a -Wl,--no-whole-archive -o "D:\VIT\SEM 6\Compiler Design\DOMEngine\bin\dom-engine.exe" -Wl,--out-implib,"D:\VIT\SEM 6\Compiler Design\DOMEngine\bin\libdom-engine.dll.a" -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\dom-engine.dir\linkLibs.rsp

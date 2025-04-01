@@ -1,0 +1,3 @@
+D:/VIT/SEM 6/Compiler Design/DOMEngine/build/CMakeFiles/dom-engine.dir
+D:/VIT/SEM 6/Compiler Design/DOMEngine/build/CMakeFiles/edit_cache.dir
+D:/VIT/SEM 6/Compiler Design/DOMEngine/build/CMakeFiles/rebuild_cache.dir
