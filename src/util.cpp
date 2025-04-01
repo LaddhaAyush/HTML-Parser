@@ -1,5 +1,8 @@
 #include "util.h"
 #include "style.h"
+using namespace std;
+#include <iostream>
+#include <string>
 
 namespace util {
     
@@ -132,7 +135,7 @@ namespace util {
 
     void readLine(std::string& line)
     {
-        std::getline(std::cin >> std::ws, line);
+        getline(std::cin >> std::ws, line);
     }
 
     void logSyntaxError(std::string msg)

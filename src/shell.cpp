@@ -22,7 +22,7 @@ namespace dom {
         }
 
         Log("DOM Manipulation Engine " << APP_VERSION);
-        Log("(C) 2019 Rohit Awate");
+        Log("(C) TY-G11");
 
         std::string cmd;
         while (true)
