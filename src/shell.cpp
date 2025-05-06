@@ -1,3 +1,6 @@
+// defines a Shell (Command-Line Interface) for interacting with a DOM (Document Object Model) Engine. 
+// It allows users to execute commands to manipulate and inspect the DOM via a text-based interface.
+
 #include "shell.h"
 #include "util.h"
 #include "style.h"

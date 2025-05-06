@@ -1,3 +1,8 @@
+// This code defines the Node class, which represents an HTML element in a DOM (Document Object Model) tree. The code enables: 
+// ✅ Creating and manipulating HTML elements
+// ✅ Storing attributes like ID and class
+// ✅ Building and traversing the DOM tree
+// ✅ Converting the DOM tree to an HTML string
 #include "node.h"
 #include "util.h"
 #include "style.h"
@@ -24,6 +29,8 @@ namespace dom {
 	Node::Node(const std::string& type) : type(type), parent(nullptr), attributes(nullptr), children(nullptr) {}
 
 	std::string& Node::getInnerHTML() { return innerHTML; }
+
+	void Node::setInnerHTML(const std::string& html) { innerHTML = html; }
 
 	Node* Node::getParent(){ return parent; }
 
@@ -150,6 +157,24 @@ namespace dom {
 		if (attributes != nullptr)
 			for (auto itr : *attributes)
 				lambda(itr.first, itr.second);
+	}
+
+	// Implementation of the new methods for attribute manipulation
+	void Node::setAttribute(const std::string& key, const std::string& value)
+	{
+		// Lazy initialization of attributes map
+		if (attributes == nullptr)
+			attributes = new std::map<std::string, std::string>();
+		
+		(*attributes)[key] = value;
+	}
+	
+	std::string Node::getAttribute(const std::string& key) const
+	{
+		if (attributes == nullptr)
+			return "";
+		
+		return util::mapGet<std::string, std::string>(*attributes, key);
 	}
 
 } // namespace dom

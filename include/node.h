@@ -34,6 +34,8 @@ namespace dom {
 		Node(const std::string& type);
 
 		std::string& getInnerHTML();
+		
+		void setInnerHTML(const std::string& html);
 
 		Node* getParent();
 
@@ -54,6 +56,9 @@ namespace dom {
 		void forEachChild(std::function<void(const Node* child)>& lambda) const;
 
 		void forEachAttribute(std::function<void(const std::string&, const std::string&)>& lambda) const;
+		
+		void setAttribute(const std::string& key, const std::string& value);
+		std::string getAttribute(const std::string& key) const;
 	};
 
 } // namespace dom

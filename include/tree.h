@@ -14,6 +14,8 @@ namespace dom {
 
 		Node* match(std::string& identifier);
 
+		Node* createElement(std::string& elementSpec);
+
 		void print();
 
 		std::string toHTML();

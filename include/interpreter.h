@@ -15,6 +15,7 @@ namespace dom
     private:
         Tree* tree;
         const static std::regex SELECTOR_CMD_FORMAT;
+        const static std::regex CREATE_CMD_FORMAT;
     public:
         Interpreter(Tree* tree);
     

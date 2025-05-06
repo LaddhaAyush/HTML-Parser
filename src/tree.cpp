@@ -42,6 +42,37 @@ namespace dom {
 		return match(this->root, sel);
 	}
 
+	// Creates a new element based on a selector-like string (e.g., "div#id.class1.class2")
+	Node* Tree::createElement(std::string& elementSpec)
+	{
+		Selector sel = tokenizeSelector(elementSpec);
+		
+		// If no type is specified, default to div
+		std::string nodeType = sel.type.empty() ? "div" : sel.type;
+		
+		// Create new node
+		Node* newNode = new Node(nodeType);
+		
+		// Set ID if specified
+		if (!sel.id.empty()) {
+			newNode->setAttribute("id", sel.id);
+		}
+		
+		// Set class if specified
+		if (!sel.classNames.empty()) {
+			std::string classStr;
+			for (size_t i = 0; i < sel.classNames.size(); i++) {
+				classStr += sel.classNames[i];
+				if (i < sel.classNames.size() - 1) {
+					classStr += " ";
+				}
+			}
+			newNode->setAttribute("class", classStr);
+		}
+		
+		return newNode;
+	}
+
 	void Tree::print()
 	{
 		print(root, "", true);
@@ -130,7 +161,7 @@ namespace dom {
 				curr++;
 				int start = curr;
 
-				while (selector[curr] != '.' && selector[curr] != '#' && selector[curr] != '@' && curr < len) curr++;
+				while (curr < len && selector[curr] != '.' && selector[curr] != '#' && selector[curr] != '@') curr++;
 
 				argClassNames.push_back(selector.substr(start, curr - start));
 			}
@@ -139,7 +170,7 @@ namespace dom {
 				curr++;
 				int start = curr;
 
-				while (selector[curr] != '.' && selector[curr] != '#' && selector[curr] != '@' && curr < len) curr++;
+				while (curr < len && selector[curr] != '.' && selector[curr] != '#' && selector[curr] != '@') curr++;
 
 				if (argId != "") continue;	// Only matching the first ID
 				argId = selector.substr(start, curr - start);
@@ -149,7 +180,7 @@ namespace dom {
 				curr++;
 				int start = curr;
 
-				while (selector[curr] != '.' && selector[curr] != '#' && selector[curr] != '@' && curr < len) curr++;
+				while (curr < len && selector[curr] != '.' && selector[curr] != '#' && selector[curr] != '@') curr++;
 
 				if (argType != "") continue;	// Only matching the first type
 				argType = selector.substr(start, curr - start);

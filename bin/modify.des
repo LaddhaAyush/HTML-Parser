@@ -1,0 +1,25 @@
+# First, let's select a div with ID "content" and inspect it
+$("@div#content")
+{
+    # See what's inside first
+    children;
+    innerhtml;
+}
+
+# Select all paragraph elements with class "info" and check their attributes
+$("@p.info")
+{
+    attrs;
+}
+
+# Select header element and check its contents
+$("@h1")
+{
+    innerhtml;
+}
+
+# Print the entire DOM tree to see structure
+print;
+
+# Save the modified DOM to a new file
+save modified-page.html;
